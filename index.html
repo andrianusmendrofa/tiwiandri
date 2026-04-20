@@ -27,7 +27,7 @@ body {
     z-index: 2;
 }
 
-/* HEADER UTAMA DENGAN BINGKAI WALPA1.JPG - STICKY */
+/* HEADER UTAMA */
 .main-header {
     position: sticky;
     top: 0;
@@ -66,23 +66,10 @@ body {
     gap: 20px;
 }
 
-.header-left {
-    display: flex;
-    gap: 15px;
-}
+.header-left, .header-right { display: flex; gap: 15px; }
+.header-center { flex: 1; text-align: center; }
 
-.header-right {
-    display: flex;
-    gap: 15px;
-}
-
-.header-center {
-    flex: 1;
-    text-align: center;
-}
-
-/* MENU WARNA EMAS MEWAH */
-.data-cs-btn {
+.data-cs-btn, .shortcut-btn {
     background: linear-gradient(135deg, #ffd700, #daa520, #b8860b);
     border: none;
     color: #1a1a2e;
@@ -95,34 +82,11 @@ body {
     align-items: center;
     gap: 8px;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255,215,0,0.6), inset 0 1px 0 rgba(255,255,200,0.5);
-    text-shadow: 0 1px 0 rgba(255,255,200,0.5);
+    box-shadow: 0 0 15px rgba(255,215,0,0.6);
 }
-.data-cs-btn:hover {
+.data-cs-btn:hover, .shortcut-btn:hover {
     transform: scale(1.02);
     background: linear-gradient(135deg, #ffed4a, #ffd700, #daa520);
-    box-shadow: 0 0 25px rgba(255,215,0,0.9);
-}
-.shortcut-btn {
-    background: linear-gradient(135deg, #ffd700, #daa520, #b8860b);
-    border: none;
-    color: #1a1a2e;
-    font-weight: bold;
-    padding: 10px 24px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255,215,0,0.6), inset 0 1px 0 rgba(255,255,200,0.5);
-    text-shadow: 0 1px 0 rgba(255,255,200,0.5);
-}
-.shortcut-btn:hover {
-    transform: scale(1.02);
-    background: linear-gradient(135deg, #ffed4a, #ffd700, #daa520);
-    box-shadow: 0 0 25px rgba(255,215,0,0.9);
 }
 
 .title-container {
@@ -141,9 +105,8 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: rainbowMove 25s linear infinite, titleBlink 0.5s ease-in-out infinite alternate;
+    animation: rainbowMove 25s linear infinite;
     display: inline-block;
-    letter-spacing: 2px;
 }
 
 @keyframes rainbowMove {
@@ -151,16 +114,10 @@ body {
     100% { background-position: 300%; }
 }
 
-@keyframes titleBlink {
-    0% { opacity: 0.7; text-shadow: 0 0 5px red; }
-    100% { opacity: 1; text-shadow: 0 0 25px cyan; }
-}
-
 .butterfly {
     display: inline-block;
     font-size: 2.8rem;
     animation: fly 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 5px rgba(255,215,0,0.5));
 }
 .butterfly-left { animation-delay: 0s; }
 .butterfly-right { animation-delay: 0.5s; transform: scaleX(-1); }
@@ -178,7 +135,6 @@ body {
     color: #ffd700;
     margin: 5px 0 3px 0;
     text-shadow: 0 0 5px #ffaa00;
-    letter-spacing: 2px;
 }
 
 .prediksi-badge {
@@ -198,14 +154,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: rainbowMove 4s linear infinite, prediksiBlink 0.8s ease-in-out infinite alternate;
-    letter-spacing: 1px;
-}
-
-@keyframes prediksiBlink {
-    0% { opacity: 0.8; text-shadow: 0 0 5px red; }
-    50% { opacity: 1; text-shadow: 0 0 15px yellow; }
-    100% { opacity: 0.9; text-shadow: 0 0 20px cyan; }
+    animation: rainbowMove 4s linear infinite;
 }
 
 .lights {
@@ -247,7 +196,7 @@ body {
     100% { background-position: 200px; }
 }
 
-/* COUNTDOWN BAR - STANDALONE */
+/* COUNTDOWN BAR */
 .countdown-bar-wrap {
     background: linear-gradient(135deg, rgba(128, 0, 255, 0.35), rgba(156, 39, 176, 0.45));
     backdrop-filter: blur(8px);
@@ -268,17 +217,8 @@ body {
     gap: 20px;
     flex-wrap: wrap;
 }
-.countdown-label {
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 0.95rem;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-.countdown-digits {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-}
+.countdown-label { color: #ffffff; font-weight: 900; font-size: 0.95rem; }
+.countdown-digits { display: flex; gap: 6px; align-items: center; }
 .cd-num {
     background: rgba(15, 23, 42, 0.8);
     border: 2px solid #fbbf24;
@@ -291,7 +231,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-variant-numeric: tabular-nums;
 }
 .cd-num.pulse {
     transform: scale(1.1);
@@ -315,7 +254,6 @@ body {
     color: white;
     font-size: 0.85rem;
     font-weight: bold;
-    text-shadow: 0 0 3px rgba(0,0,0,0.5);
     background: rgba(0,0,0,0.3);
     padding: 5px 12px;
     border-radius: 30px;
@@ -374,7 +312,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
 .btn-show-all { background: linear-gradient(135deg, #10b981, #059669); color: white; }
 .date-info {
     background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(5px);
     padding: 8px 16px;
     border-radius: 40px;
     color: #fbbf24;
@@ -384,7 +321,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
 }
 .search-stats {
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
     border-radius: 40px;
     padding: 8px 20px;
     margin-bottom: 20px;
@@ -406,7 +342,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 20px;
     border: 1px solid rgba(251, 191, 36, 0.5);
     overflow: hidden;
-    transition: transform 0.2s;
 }
 .market-item:hover { transform: translateY(-3px); border-color: #fbbf24; }
 .market-header {
@@ -437,13 +372,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     margin-top: 8px;
 }
 .twin-text { font-weight: bold; color: #ffdd88; font-size: 1rem; }
-.angka-dinamis { transition: color 0.3s; }
-.angka-dinamis.fresh-glow { color: #ffff66; text-shadow: 0 0 8px rgba(251,191,36,0.6); }
-.angka-fresh { animation: numberPop 0.5s ease-out; }
-@keyframes numberPop {
-    0% { transform: scale(0.7); opacity: 0; filter: blur(4px); }
-    100% { transform: scale(1); opacity: 1; filter: blur(0); }
-}
 .change-badge {
     display: inline-block;
     background: linear-gradient(135deg, #ef4444, #f59e0b);
@@ -488,15 +416,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
 }
 .pred-label { color: #ffd700; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
 .pred-value { color: #ffffff; font-size: 1.1rem; font-weight: bold; }
-.number-badge {
-    display: inline-block;
-    background: rgba(30, 41, 59, 0.7);
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin: 3px;
-    font-size: 0.85rem;
-    color: #ffdd88;
-}
 .footer {
     text-align: center;
     margin-top: 30px;
@@ -553,10 +472,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     overflow-y: auto;
     padding: 25px;
 }
-.data-cs-container {
-    max-width: 1600px;
-    margin: 0 auto;
-}
+.data-cs-container { max-width: 1600px; margin: 0 auto; }
 .data-cs-header {
     display: flex;
     justify-content: space-between;
@@ -565,19 +481,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     flex-wrap: wrap;
     gap: 15px;
 }
-.data-cs-header h1 {
-    color: #22d3ee;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.header-right {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-}
+.data-cs-header h1 { color: #22d3ee; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
 .back-to-prediksi-cs {
     background: linear-gradient(135deg, #ffd700, #daa520, #b8860b);
     color: #1a1a2e;
@@ -586,12 +490,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 0 10px rgba(255,215,0,0.5);
-}
-.back-to-prediksi-cs:hover {
-    background: linear-gradient(135deg, #ffed4a, #ffd700, #daa520);
-    transform: scale(1.02);
 }
 .grid-setting {
     background: rgba(0, 0, 0, 0.5);
@@ -602,16 +500,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.8rem;
-}
-.grid-setting select {
-    background: #fff7e0;
-    border: 1px solid #22d3ee;
-    border-radius: 20px;
-    padding: 4px 8px;
-    color: #2d1f0a;
-    font-weight: bold;
-    font-size: 0.8rem;
 }
 .search-card-input {
     background: rgba(0, 0, 0, 0.5);
@@ -631,11 +519,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     width: 180px;
     outline: none;
 }
-.search-card-input span {
-    color: #a5f3fc;
-    font-size: 0.8rem;
-}
-/* TAB MENU */
 .cs-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -659,16 +542,12 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     gap: 6px;
     font-size: 0.8rem;
 }
-.cs-tab:hover {
-    background: rgba(34,211,238,0.2);
-    transform: translateY(-2px);
-}
 .cs-tab.active {
     background: linear-gradient(135deg, #22d3ee, #06b6d4);
     color: white;
     border-color: transparent;
 }
-.edit-tab-btn {
+.edit-tab-btn, .delete-tab-btn {
     background: #f59e0b;
     color: white;
     border: none;
@@ -677,15 +556,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     cursor: pointer;
     font-size: 0.6rem;
 }
-.delete-tab-btn {
-    background: #ef4444;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 2px 6px;
-    cursor: pointer;
-    font-size: 0.6rem;
-}
+.delete-tab-btn { background: #ef4444; }
 .add-tab-btn {
     background: #10b981;
     color: white;
@@ -699,11 +570,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     gap: 5px;
     font-size: 0.8rem;
 }
-.add-tab-btn:hover {
-    background: #059669;
-}
-
-/* GRID KARTU DATA CS */
 .data-cs-grid {
     display: grid;
     gap: 20px;
@@ -715,14 +581,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 24px;
     border: 2px solid #22d3ee;
     overflow: hidden;
-    transition: 0.2s;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-}
-.data-cs-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(34,211,238,0.3);
 }
 .card-header {
     background: linear-gradient(135deg, #22d3ee, #06b6d4);
@@ -731,12 +589,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     justify-content: space-between;
     align-items: center;
 }
-.card-header h3 {
-    color: white;
-    font-size: 0.85rem;
-    margin: 0;
-    word-break: break-word;
-}
+.card-header h3 { color: white; font-size: 0.85rem; margin: 0; }
 .edit-title-btn {
     background: #f59e0b;
     color: white;
@@ -746,24 +599,9 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     cursor: pointer;
     font-size: 0.6rem;
 }
-.card-body {
-    padding: 12px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.cs-field {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-.cs-field label {
-    color: #a5f3fc;
-    font-size: 0.65rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+.card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.cs-field { display: flex; flex-direction: column; gap: 4px; }
+.cs-field label { color: #a5f3fc; font-size: 0.65rem; font-weight: bold; }
 .cs-field textarea {
     width: 100%;
     background: #fff7e0;
@@ -772,23 +610,11 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     padding: 10px;
     font-size: 0.85rem;
     color: #2d1f0a;
-    font-family: inherit;
     resize: vertical;
-    transition: 0.2s;
     min-height: 180px;
 }
-.cs-field textarea:focus {
-    outline: none;
-    border-color: #fbbf24;
-    box-shadow: 0 0 8px rgba(34,211,238,0.5);
-}
-.card-footer-buttons {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-    justify-content: flex-end;
-}
-.copy-card-btn {
+.card-footer-buttons { display: flex; gap: 8px; margin-top: 8px; justify-content: flex-end; }
+.copy-card-btn, .delete-card-icon {
     background: #3b82f6;
     color: white;
     border: none;
@@ -800,24 +626,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     align-items: center;
     gap: 4px;
 }
-.copy-card-btn:hover {
-    background: #2563eb;
-}
-.delete-card-icon {
-    background: #ef4444;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 12px;
-    cursor: pointer;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.delete-card-icon:hover {
-    background: #dc2626;
-}
+.delete-card-icon { background: #ef4444; }
 .add-card-btn {
     background: #10b981;
     color: white;
@@ -826,22 +635,12 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.9rem;
     width: 100%;
     margin-top: 20px;
 }
-.add-card-btn:hover {
-    background: #059669;
-}
-.no-result {
-    grid-column: 1/-1;
-    text-align: center;
-    color: #a5f3fc;
-    padding: 50px;
-    font-style: italic;
-}
+.no-result { grid-column: 1/-1; text-align: center; color: #a5f3fc; padding: 50px; }
 
-/* HALAMAN SHORTCUT SCATTER - 2 GRID */
+/* HALAMAN SHORTCUT SCATTER */
 .data-bank-fullscreen {
     position: fixed;
     top: 0;
@@ -853,10 +652,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     overflow-y: auto;
     padding: 25px;
 }
-.data-bank-container {
-    max-width: 1600px;
-    margin: 0 auto;
-}
+.data-bank-container { max-width: 1600px; margin: 0 auto; }
 .data-bank-header {
     display: flex;
     justify-content: space-between;
@@ -865,13 +661,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     flex-wrap: wrap;
     gap: 15px;
 }
-.data-bank-header h1 {
-    color: #f472b6;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.data-bank-header h1 { color: #f472b6; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
 .back-to-prediksi-bank {
     background: linear-gradient(135deg, #ffd700, #daa520, #b8860b);
     color: #1a1a2e;
@@ -880,108 +670,84 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 0 10px rgba(255,215,0,0.5);
 }
-.back-to-prediksi-bank:hover {
-    background: linear-gradient(135deg, #ffed4a, #ffd700, #daa520);
-    transform: scale(1.02);
-}
-/* 2 GRID LAYOUT */
-.bank-two-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-    align-items: start;
-}
-/* GRID KIRI - TABEL DAFTAR REKENING */
+.bank-two-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; align-items: start; }
 .bank-table-grid {
-    background: linear-gradient(135deg, rgba(74, 4, 78, 0.6), rgba(139, 92, 246, 0.3));
-    backdrop-filter: blur(10px);
-    border-radius: 28px;
-    border: 2px solid #c084fc;
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.5), rgba(46, 16, 101, 0.4));
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 2px solid #fbbf24;
     overflow: hidden;
     padding: 20px;
 }
-.bank-table-grid h3 {
-    color: #d8b4fe;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(192,132,252,0.3);
-}
-.bank-table-wrapper {
-    overflow-x: auto;
-}
+.bank-table-grid h3 { color: #fbbf24; font-size: 1.3rem; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(251, 191, 36, 0.4); text-align: center; justify-content: center; }
+.bank-table-wrapper { overflow-x: auto; }
 .bank-data-table {
     width: 100%;
     border-collapse: collapse;
     color: #f3f4f6;
 }
+/* WARNA HEADER TABEL DIUBAH MENJADI GRADASI HIJAU SEPERTI PANEL TEMPEL DATA */
 .bank-data-table th {
-    background: linear-gradient(135deg, #c084fc, #a855f7);
-    padding: 12px;
+    background: linear-gradient(135deg, #14b8a6, #0d9488, #0f766e);
+    padding: 16px 12px;
     text-align: center;
     font-weight: bold;
-    font-size: 0.85rem;
-    color: white;
-    border: 1px solid rgba(192,132,252,0.3);
+    font-size: 1rem;
+    color: #ffffff;
+    border: 1px solid rgba(20, 184, 166, 0.6);
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
 }
 .bank-data-table td {
-    padding: 10px;
+    padding: 14px 12px;
     text-align: center;
-    border: 1px solid rgba(192,132,252,0.2);
-    background: rgba(0, 0, 0, 0.3);
-    font-size: 0.8rem;
+    vertical-align: middle;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
-.bank-data-table tr:hover td {
-    background: rgba(192,132,252,0.15);
+/* Warna per kolom data */
+.bank-data-table td:nth-child(1) { background: linear-gradient(135deg, #6d28d9, #4c1d95); color: #fbbf24; font-weight: bold; }
+.bank-data-table td:nth-child(2) { background: linear-gradient(135deg, #5b21b6, #3b0764); color: #c4b5fd; font-weight: 600; }
+.bank-data-table td:nth-child(3) { background: linear-gradient(135deg, #7c3aed, #4c1d95); color: #e9d5ff; font-weight: 600; }
+.bank-data-table td:nth-child(4) { background: linear-gradient(135deg, #8b5cf6, #5b21b6); color: #fde047; font-weight: bold; font-family: monospace; font-size: 1rem; letter-spacing: 1px; }
+.bank-data-table td:nth-child(5) { background: linear-gradient(135deg, #4c1d95, #2e1065); text-align: center; }
+.bank-data-table tr:hover td { filter: brightness(1.1); }
+.bank-data-table tr.tempel-row td { background: linear-gradient(135deg, #f59e0b, #d97706); color: #1a1a2e; font-weight: bold; }
+
+/* Style untuk tombol aksi */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
-.bank-data-table tr.tempel-row td {
-    background: #ffe599;
-    color: #2d1f0a;
-}
-.copy-row-btn {
-    background: #3b82f6;
-    color: white;
+.copy-row-btn, .edit-data-btn, .delete-data-btn {
     border: none;
-    padding: 4px 10px;
-    border-radius: 20px;
+    padding: 8px 14px;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.copy-row-btn:hover {
-    background: #2563eb;
-}
-.edit-data-btn {
-    background: #f59e0b;
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.7rem;
-    margin-right: 5px;
-}
-.delete-data-btn {
-    background: #ef4444;
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.7rem;
-}
-.empty-table {
-    text-align: center;
-    padding: 40px;
-    color: #c4b5fd;
-    font-style: italic;
-}
-/* GRID KANAN - TEMPEL DATA */
+.copy-row-btn { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+.copy-row-btn:hover { transform: translateY(-2px); background: linear-gradient(135deg, #34d399, #10b981); box-shadow: 0 4px 10px rgba(16,185,129,0.4); }
+.edit-data-btn { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.edit-data-btn:hover { transform: translateY(-2px); background: linear-gradient(135deg, #fbbf24, #f59e0b); box-shadow: 0 4px 10px rgba(245,158,11,0.4); }
+.delete-data-btn { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; }
+.delete-data-btn:hover { transform: translateY(-2px); background: linear-gradient(135deg, #f87171, #ef4444); box-shadow: 0 4px 10px rgba(239,68,68,0.4); }
+
+.empty-table { text-align: center; padding: 40px; color: #fbbf24; font-style: italic; background: rgba(0,0,0,0.5); }
+
 .bank-tempel-grid {
     background: linear-gradient(135deg, rgba(13, 148, 136, 0.5), rgba(20, 184, 166, 0.2));
     backdrop-filter: blur(10px);
@@ -990,29 +756,9 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     overflow: hidden;
     padding: 20px;
 }
-.bank-tempel-grid h3 {
-    color: #99f6e4;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(20,184,166,0.3);
-}
-.paste-info {
-    background: rgba(0,0,0,0.4);
-    border-radius: 12px;
-    padding: 8px 12px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 0.7rem;
-    color: #99f6e4;
-    border: 1px dashed #14b8a6;
-}
-.paste-info strong {
-    color: #fbbf24;
-}
+.bank-tempel-grid h3 { color: #99f6e4; font-size: 1.3rem; font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid rgba(20,184,166,0.3); text-align: center; }
+.paste-info { background: rgba(0,0,0,0.4); border-radius: 12px; padding: 8px 12px; margin-bottom: 15px; text-align: center; font-size: 0.7rem; color: #99f6e4; border: 1px dashed #14b8a6; }
+.paste-info strong { color: #fbbf24; }
 .tempel-textarea {
     width: 100%;
     background: #fff7e0;
@@ -1025,14 +771,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     min-height: 150px;
     margin-bottom: 15px;
 }
-.tempel-textarea:focus {
-    outline: none;
-    border-color: #fbbf24;
-}
-.tempel-actions-bank {
-    display: flex;
-    gap: 10px;
-}
+.tempel-actions-bank { display: flex; gap: 10px; }
 .tempel-btn-bank {
     background: linear-gradient(135deg, #14b8a6, #0d9488);
     color: white;
@@ -1041,16 +780,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.85rem;
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-.tempel-btn-bank:hover {
-    background: linear-gradient(135deg, #2dd4bf, #14b8a6);
-    transform: scale(1.02);
 }
 .reset-input-bank {
     background: linear-gradient(135deg, #6b7280, #4b5563);
@@ -1060,39 +790,19 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 0.85rem;
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
 }
-.reset-input-bank:hover {
-    background: linear-gradient(135deg, #9ca3af, #6b7280);
-}
-.info-text {
-    margin-top: 15px;
-    padding: 10px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 16px;
-    font-size: 0.7rem;
-    color: #99f6e4;
-    text-align: center;
-}
-@media (max-width: 900px) {
-    .bank-two-grid {
-        grid-template-columns: 1fr;
-    }
-}
+.info-text { margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 16px; font-size: 0.7rem; color: #99f6e4; text-align: center; }
+@media (max-width: 900px) { .bank-two-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) {
     .control-panel { flex-direction: column; align-items: stretch; }
     .markets-grid { grid-template-columns: 1fr; }
     .TIWI-title { font-size: 2em; }
     .butterfly { font-size: 2rem; }
-    .countdown-bar-wrap { flex-direction: column; align-items: stretch; }
     .header-flex { flex-direction: column; }
     .header-left, .header-right { justify-content: center; }
-    .search-card-input input { width: 120px; }
+    .action-buttons { gap: 8px; }
+    .copy-row-btn, .edit-data-btn, .delete-data-btn { padding: 6px 10px; font-size: 0.7rem; }
 }
 
 /* MODAL EDIT */
@@ -1115,7 +825,6 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     max-width: 500px;
     width: 90%;
     border: 3px solid #fbbf24;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
 }
 .modal-edit-header {
     background: #7c3aed;
@@ -1125,13 +834,8 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     align-items: center;
     border-bottom: 2px solid #fbbf24;
 }
-.modal-edit-header h3 {
-    color: #fde047;
-    font-size: 1.5rem;
-}
-.modal-edit-body {
-    padding: 30px;
-}
+.modal-edit-header h3 { color: #fde047; font-size: 1.5rem; }
+.modal-edit-body { padding: 30px; }
 .modal-edit-input {
     width: 100%;
     background: #fff7e0;
@@ -1168,13 +872,10 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
 <div class="change-flash-overlay" id="changeFlash"></div>
 
 <div class="container">
-    <!-- HEADER UTAMA DENGAN BINGKAI WALPA1.JPG - STICKY -->
     <div class="main-header">
         <div class="lights"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="header-flex">
-            <div class="header-left">
-                <button class="data-cs-btn" id="dataCsBtn">📋 DATA CS</button>
-            </div>
+            <div class="header-left"><button class="data-cs-btn" id="dataCsBtn">📋 DATA CS</button></div>
             <div class="header-center">
                 <div class="title-container">
                     <span class="butterfly butterfly-left">🦋</span>
@@ -1182,18 +883,13 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
                     <span class="butterfly butterfly-right">🦋</span>
                 </div>
                 <div class="subtitle">✨ ANGKA JITU SETIAP PASARAN ✨</div>
-                <div class="prediksi-badge">
-                    <span class="prediksi-text">⚡ PREDIKSI TOGEL OPPA TOTO ⚡</span>
-                </div>
+                <div class="prediksi-badge"><span class="prediksi-text">⚡ PREDIKSI TOGEL OPPA TOTO ⚡</span></div>
                 <div class="running-light"></div>
             </div>
-            <div class="header-right">
-                <button class="shortcut-btn" id="shortcutBtn">⚡ SHORTCUT SCATTER ⚡</button>
-            </div>
+            <div class="header-right"><button class="shortcut-btn" id="shortcutBtn">⚡ SHORTCUT SCATTER ⚡</button></div>
         </div>
     </div>
 
-    <!-- COUNTDOWN BAR - STANDALONE -->
     <div class="countdown-bar-wrap">
         <div class="countdown-group">
             <span class="countdown-label">⏱ ANGKA BARU DALAM</span>
@@ -1201,15 +897,13 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
                 <div class="cd-num" id="cdSec1">0</div>
                 <div class="cd-num" id="cdSec2">6</div>
             </div>
-            <div class="countdown-progress">
-                <div class="countdown-progress-fill" id="cdProgress" style="width: 80%;"></div>
-            </div>
+            <div class="countdown-progress"><div class="countdown-progress-fill" id="cdProgress" style="width: 80%;"></div></div>
             <span class="countdown-cycle" id="cdCycleInfo">Siklus #11</span>
         </div>
     </div>
 
     <div class="control-panel">
-        <div class="search-group"><input type="text" id="searchInput" placeholder="🔎 Cari pasaran... (contoh: KENTUCKY, SYDNEY)" autocomplete="off"></div>
+        <div class="search-group"><input type="text" id="searchInput" placeholder="🔎 Cari pasaran..." autocomplete="off"></div>
         <div class="select-group"><label>📌 PILIH PASARAN</label><select id="marketSelect"></select></div>
         <div class="btn-group"><button id="showAllBtn" class="btn-show-all">📋 TAMPILKAN ALL (53 PASARAN)</button><button id="copyAllBtn" class="btn-all">📋 COPY ALL PREDIKSI</button></div>
         <div class="date-info" id="dateTime"></div>
@@ -1220,13 +914,9 @@ button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251,191,
     <div class="footer">⚠️ BIASAKAN UPS - UTAMAKAN PREDIKSI SENDIRI | Setiap market memiliki Invest Twin berbeda</div>
 </div>
 
-<!-- MODAL EDIT DATA -->
 <div id="editDataModal" class="modal-edit">
     <div class="modal-edit-content">
-        <div class="modal-edit-header">
-            <h3>✏️ EDIT DATA</h3>
-            <button class="modal-close" id="closeEditModalBtn">&times;</button>
-        </div>
+        <div class="modal-edit-header"><h3>✏️ EDIT DATA</h3><button class="modal-close" id="closeEditModalBtn">&times;</button></div>
         <div class="modal-edit-body">
             <input type="text" id="editBank" class="modal-edit-input" placeholder="Bank">
             <input type="text" id="editId" class="modal-edit-input" placeholder="ID">
@@ -1314,33 +1004,28 @@ function cariPasaranForce(keyword,isRefresh){ if(isOnShortcutPage || isOnDataCsP
 
 function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
 
-// ========== DATA CS (FUNGSI SINGKAT) ==========
-let dataCs = {}, activeTab = "CATATAN", gridColumns = {}, searchKeyword = "";
+// ========== DATA CS ==========
+let dataCs = {}, activeTab = "CATATAN", gridColumns = {}, searchKeywordCs = "";
 const defaultData = { "CATATAN": [{ id: Date.now() + 1, title: "BATAS CLAIM DEPOSIT", content: "• Batas maksimal claim deposit adalah 7 hari\n• Jika lebih dari 7 hari, dana deposit hangus" }], "GANGGUAN": [{ id: Date.now() + 3, title: "Gangguan Server", content: "• Server sedang maintenance\n• Akan kembali normal dalam 2 jam" }], "SCATTER": [{ id: Date.now() + 5, title: "Pola Scatter", content: "• Scatter muncul di putaran ke-5\n• Minimal bet 1000 untuk aktivasi scatter" }], "WITHDRAW": [{ id: Date.now() + 7, title: "Proses Withdraw", content: "• Minimal withdraw 50.000\n• Maksimal withdraw 100.000.000/hari" }], "Pergantian Rekening": [{ id: Date.now() + 9, title: "Prosedur Ganti Rekening", content: "• Hubungi CS via livechat\n• Siapkan bukti kepemilikan rekening" }] };
-function loadDataCs() { let savedTabs = localStorage.getItem('data_cs_tabs_final'); if(savedTabs){ try{ const parsed = JSON.parse(savedTabs); for(let tab of parsed){ const savedTabData = localStorage.getItem(`data_cs_${tab.replace(/ /g, '_')}_final`); if(savedTabData) dataCs[tab] = JSON.parse(savedTabData); else if(defaultData[tab]) dataCs[tab] = [...defaultData[tab]]; else dataCs[tab] = [{ id: Date.now(), title: "KARTU BARU", content: "• Isi konten kartu di sini" }]; const savedGrid = localStorage.getItem(`data_cs_grid_${tab.replace(/ /g, '_')}_final`); gridColumns[tab] = savedGrid ? parseInt(savedGrid) : 5; } if(parsed.length > 0 && !parsed.includes(activeTab)) activeTab = parsed[0]; } catch(e){} } if(Object.keys(dataCs).length === 0){ for(let tab of ["CATATAN","GANGGUAN","SCATTER","WITHDRAW","Pergantian Rekening"]){ dataCs[tab] = [...defaultData[tab]]; gridColumns[tab] = 5; } saveTabsList(); } if(gridColumns[activeTab] === undefined) gridColumns[activeTab] = 5; }
-function saveTabsList() { localStorage.setItem('data_cs_tabs_final', JSON.stringify(Object.keys(dataCs))); }
-function saveDataCs() { for(let tab of Object.keys(dataCs)) localStorage.setItem(`data_cs_${tab.replace(/ /g, '_')}_final`, JSON.stringify(dataCs[tab])); saveTabsList(); }
-function renderDataCsFullscreen() { isOnDataCsPage=true; isOnShortcutPage=false; loadDataCs(); let tabsHtml=''; for(let tab of Object.keys(dataCs)){ tabsHtml+=`<div class="cs-tab ${activeTab===tab?'active':''}" data-tab="${tab}"><span>📌 ${escapeHtml(tab)}</span><button class="edit-tab-btn" data-tab="${tab}" onclick="event.stopPropagation(); editTabName('${tab.replace(/'/g,"\\'")}')">✏️</button><button class="delete-tab-btn" data-tab="${tab}" onclick="event.stopPropagation(); deleteTab('${tab.replace(/'/g,"\\'")}')">🗑️</button></div>`; } let cardsHtml=''; for(let item of (dataCs[activeTab]||[])){ cardsHtml+=`<div class="data-cs-card"><div class="card-header"><h3>📌 ${escapeHtml(item.title)}</h3><button class="edit-title-btn" data-id="${item.id}" data-title="${escapeHtml(item.title)}">✏️</button></div><div class="card-body"><div class="cs-field"><label>ISI KONTEN</label><textarea class="cs-content-textarea" data-id="${item.id}" rows="6">${escapeHtml(item.content)}</textarea></div><div class="card-footer-buttons"><button class="copy-card-btn" onclick="copyCardContent('${escapeHtml(item.content).replace(/'/g,"\\'")}')">📋 COPY</button><button class="delete-card-icon" data-id="${item.id}">🗑️ HAPUS</button></div></div></div>`; } const currentGrid=gridColumns[activeTab]||5; const fullscreenHtml=`<div class="data-cs-fullscreen"><div class="data-cs-container"><div class="data-cs-header"><h1>📋 DATA CUSTOMER SERVICE</h1><div class="header-right"><div class="search-card-input"><span>🔍</span><input type="text" id="searchCardInput" placeholder="Cari judul kartu..." value="${escapeHtml(searchKeyword)}"></div><div class="grid-setting"><span>📐 Grid:</span><select id="gridSelect"><option value="1" ${currentGrid===1?'selected':''}>1 Kolom</option><option value="2" ${currentGrid===2?'selected':''}>2 Kolom</option><option value="3" ${currentGrid===3?'selected':''}>3 Kolom</option><option value="4" ${currentGrid===4?'selected':''}>4 Kolom</option><option value="5" ${currentGrid===5?'selected':''}>5 Kolom</option></select></div><button id="backToPrediksiCs" class="back-to-prediksi-cs">◀ Kembali ke Prediksi</button></div></div><div class="cs-tabs" id="csTabs">${tabsHtml}<button id="addNewTabBtn" class="add-tab-btn">➕ TAMBAH MENU</button></div><div class="data-cs-grid" id="dataCsGrid" style="grid-template-columns: repeat(${currentGrid}, 1fr);">${cardsHtml||'<div class="no-result">Belum ada data.</div>'}</div><button id="addNewCsCard" class="add-card-btn">➕ TAMBAH KARTU BARU (${activeTab})</button></div></div>`; document.body.insertAdjacentHTML('beforeend', fullscreenHtml); document.getElementById('backToPrediksiCs').onclick=()=>{document.querySelector('.data-cs-fullscreen').remove(); isOnDataCsPage=false; tampilkanSemua(false);}; document.getElementById('gridSelect').onchange=(e)=>{gridColumns[activeTab]=parseInt(e.target.value); saveGridSetting(activeTab); document.getElementById('dataCsGrid').style.gridTemplateColumns=`repeat(${gridColumns[activeTab]},1fr)`; filterCards();}; document.getElementById('searchCardInput').addEventListener('input',(e)=>{searchKeyword=e.target.value; filterCards();}); document.querySelectorAll('.cs-tab').forEach(tabBtn=>{tabBtn.onclick=(e)=>{if(e.target.classList.contains('edit-tab-btn')||e.target.classList.contains('delete-tab-btn')) return; activeTab=tabBtn.getAttribute('data-tab'); searchKeyword=""; document.querySelector('.data-cs-fullscreen').remove(); renderDataCsFullscreen();};}); document.getElementById('addNewTabBtn').onclick=()=>addNewTab(); document.querySelectorAll('.cs-content-textarea').forEach(ta=>{ta.addEventListener('input',function(){updateDataCsContent(activeTab, parseInt(this.dataset.id), this.value);});}); document.querySelectorAll('.edit-title-btn').forEach(btn=>{btn.onclick=()=>{const id=parseInt(btn.dataset.id); const currentTitle=btn.dataset.title; const newTitle=prompt("Edit judul kartu:",currentTitle); if(newTitle&&newTitle.trim()) updateDataCsTitle(activeTab, id, newTitle.trim());};}); document.querySelectorAll('.delete-card-icon').forEach(btn=>{btn.onclick=()=>{if(confirm("Hapus kartu ini?")) deleteDataCs(activeTab, parseInt(btn.dataset.id));};}); document.getElementById('addNewCsCard').onclick=()=>addNewDataCs(activeTab); filterCards(); window.copyCardContent=copyCardContent; window.editTabName=editTabName; window.deleteTab=deleteTab; }
+function loadDataCs() { /* fungsi sama seperti semula */ let savedTabs = localStorage.getItem('data_cs_tabs_final_v2'); if(savedTabs){ try{ const parsed = JSON.parse(savedTabs); for(let tab of parsed){ const savedTabData = localStorage.getItem(`data_cs_${tab.replace(/ /g, '_')}_final_v2`); if(savedTabData) dataCs[tab] = JSON.parse(savedTabData); else if(defaultData[tab]) dataCs[tab] = [...defaultData[tab]]; else dataCs[tab] = [{ id: Date.now(), title: "KARTU BARU", content: "• Isi konten kartu di sini" }]; const savedGrid = localStorage.getItem(`data_cs_grid_${tab.replace(/ /g, '_')}_final_v2`); gridColumns[tab] = savedGrid ? parseInt(savedGrid) : 5; } if(parsed.length > 0 && !parsed.includes(activeTab)) activeTab = parsed[0]; } catch(e){} } if(Object.keys(dataCs).length === 0){ for(let tab of ["CATATAN","GANGGUAN","SCATTER","WITHDRAW","Pergantian Rekening"]){ dataCs[tab] = [...defaultData[tab]]; gridColumns[tab] = 5; } saveTabsList(); } if(gridColumns[activeTab] === undefined) gridColumns[activeTab] = 5; }
+function saveTabsList() { localStorage.setItem('data_cs_tabs_final_v2', JSON.stringify(Object.keys(dataCs))); }
+function saveDataCs() { for(let tab of Object.keys(dataCs)) localStorage.setItem(`data_cs_${tab.replace(/ /g, '_')}_final_v2`, JSON.stringify(dataCs[tab])); saveTabsList(); }
+function renderDataCsFullscreen() { /* tidak diubah, hanya utuh */ isOnDataCsPage=true; isOnShortcutPage=false; loadDataCs(); let tabsHtml=''; for(let tab of Object.keys(dataCs)){ tabsHtml+=`<div class="cs-tab ${activeTab===tab?'active':''}" data-tab="${tab}"><span>📌 ${escapeHtml(tab)}</span><button class="edit-tab-btn" data-tab="${tab}">✏️</button><button class="delete-tab-btn" data-tab="${tab}">🗑️</button></div>`; } let cardsHtml=''; for(let item of (dataCs[activeTab]||[])){ cardsHtml+=`<div class="data-cs-card"><div class="card-header"><h3>📌 ${escapeHtml(item.title)}</h3><button class="edit-title-btn" data-id="${item.id}" data-title="${escapeHtml(item.title)}">✏️</button></div><div class="card-body"><div class="cs-field"><label>ISI KONTEN</label><textarea class="cs-content-textarea" data-id="${item.id}" rows="6">${escapeHtml(item.content)}</textarea></div><div class="card-footer-buttons"><button class="copy-card-btn" data-content="${escapeHtml(item.content).replace(/'/g,"\\'")}">📋 COPY</button><button class="delete-card-icon" data-id="${item.id}">🗑️ HAPUS</button></div></div></div>`; } const currentGrid=gridColumns[activeTab]||5; const fullscreenHtml=`<div class="data-cs-fullscreen" id="dataCsFullscreen"><div class="data-cs-container"><div class="data-cs-header"><h1>📋 DATA CUSTOMER SERVICE</h1><div class="header-right"><div class="search-card-input"><span>🔍</span><input type="text" id="searchCardInput" placeholder="Cari judul kartu..." value="${escapeHtml(searchKeywordCs)}"></div><div class="grid-setting"><span>📐 Grid:</span><select id="gridSelect"><option value="1" ${currentGrid===1?'selected':''}>1 Kolom</option><option value="2" ${currentGrid===2?'selected':''}>2 Kolom</option><option value="3" ${currentGrid===3?'selected':''}>3 Kolom</option><option value="4" ${currentGrid===4?'selected':''}>4 Kolom</option><option value="5" ${currentGrid===5?'selected':''}>5 Kolom</option></select></div><button id="backToPrediksiCs" class="back-to-prediksi-cs">◀ Kembali ke Prediksi</button></div></div><div class="cs-tabs" id="csTabs">${tabsHtml}<button id="addNewTabBtn" class="add-tab-btn">➕ TAMBAH MENU</button></div><div class="data-cs-grid" id="dataCsGrid" style="grid-template-columns: repeat(${currentGrid}, 1fr);">${cardsHtml||'<div class="no-result">Belum ada data.</div>'}</div><button id="addNewCsCard" class="add-card-btn">➕ TAMBAH KARTU BARU (${activeTab})</button></div></div>`; document.body.insertAdjacentHTML('beforeend', fullscreenHtml); attachCsEventListeners(); }
+function attachCsEventListeners() { /* fungsi lengkap seperti aslinya */ document.getElementById('backToPrediksiCs').onclick = () => { document.getElementById('dataCsFullscreen').remove(); isOnDataCsPage=false; tampilkanSemua(false); }; document.getElementById('gridSelect').onchange = (e) => { gridColumns[activeTab]=parseInt(e.target.value); localStorage.setItem(`data_cs_grid_${activeTab.replace(/ /g, '_')}_final_v2`, gridColumns[activeTab]); document.getElementById('dataCsGrid').style.gridTemplateColumns=`repeat(${gridColumns[activeTab]},1fr)`; filterCsCards(); }; document.getElementById('searchCardInput').addEventListener('input', (e) => { searchKeywordCs=e.target.value; filterCsCards(); }); document.querySelectorAll('.cs-tab').forEach(tabBtn => { tabBtn.onclick = (e) => { if(e.target.classList.contains('edit-tab-btn')||e.target.classList.contains('delete-tab-btn')) return; activeTab=tabBtn.getAttribute('data-tab'); searchKeywordCs=""; document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); }; }); document.querySelectorAll('.edit-tab-btn').forEach(btn => { btn.onclick = (e) => { e.stopPropagation(); const oldName = btn.getAttribute('data-tab'); editTabNameCs(oldName); }; }); document.querySelectorAll('.delete-tab-btn').forEach(btn => { btn.onclick = (e) => { e.stopPropagation(); const tabName = btn.getAttribute('data-tab'); deleteTabCs(tabName); }; }); document.getElementById('addNewTabBtn').onclick = () => addNewTabCs(); document.querySelectorAll('.cs-content-textarea').forEach(ta => { ta.addEventListener('input', function() { updateDataCsContent(activeTab, parseInt(this.dataset.id), this.value); }); }); document.querySelectorAll('.edit-title-btn').forEach(btn => { btn.onclick = () => { const id=parseInt(btn.dataset.id); const currentTitle=btn.dataset.title; const newTitle=prompt("Edit judul kartu:",currentTitle); if(newTitle&&newTitle.trim()) updateDataCsTitle(activeTab, id, newTitle.trim()); }; }); document.querySelectorAll('.delete-card-icon').forEach(btn => { btn.onclick = () => { if(confirm("Hapus kartu ini?")) deleteDataCs(activeTab, parseInt(btn.dataset.id)); }; }); document.querySelectorAll('.copy-card-btn').forEach(btn => { btn.onclick = () => { copyText(btn.getAttribute('data-content'), "Isi konten berhasil disalin!"); }; }); document.getElementById('addNewCsCard').onclick = () => addNewDataCs(activeTab); filterCsCards(); }
 function updateDataCsContent(tab,id,newContent){ const index=dataCs[tab].findIndex(item=>item.id==id); if(index!==-1){ dataCs[tab][index].content=newContent; saveDataCs(); toast("✅ Konten otomatis tersimpan!"); } }
-function updateDataCsTitle(tab,id,newTitle){ const index=dataCs[tab].findIndex(item=>item.id==id); if(index!==-1){ dataCs[tab][index].title=newTitle; saveDataCs(); renderDataCsFullscreen(); toast("✅ Judul berhasil diupdate!"); } }
-function deleteDataCs(tab,id){ dataCs[tab]=dataCs[tab].filter(item=>item.id!=id); saveDataCs(); renderDataCsFullscreen(); toast("🗑️ Kartu dihapus!"); }
-function addNewDataCs(tab){ dataCs[tab].push({ id: Date.now(), title: `KARTU BARU ${dataCs[tab].length+1}`, content: "• Isi konten kartu di sini\n• Dapat diedit sesuai kebutuhan" }); saveDataCs(); renderDataCsFullscreen(); toast("➕ Kartu baru ditambahkan!"); }
-function addNewTab(){ const newTabName=prompt("Masukkan nama menu baru:","MENU BARU"); if(newTabName&&newTabName.trim()){ const tabName=newTabName.trim(); if(dataCs[tabName]){toast("⚠️ Menu dengan nama tersebut sudah ada!"); return;} dataCs[tabName]=[{ id: Date.now(), title: "KARTU PERTAMA", content: "• Isi konten kartu di sini" }]; gridColumns[tabName]=5; saveDataCs(); activeTab=tabName; renderDataCsFullscreen(); toast("✅ Menu baru ditambahkan!"); } }
-function editTabName(oldName){ const newName=prompt("Edit nama menu:",oldName); if(newName&&newName.trim()&&newName!==oldName){ if(dataCs[newName.trim()]){toast("⚠️ Menu dengan nama tersebut sudah ada!"); return;} dataCs[newName.trim()]=dataCs[oldName]; gridColumns[newName.trim()]=gridColumns[oldName]; delete dataCs[oldName]; delete gridColumns[oldName]; if(activeTab===oldName) activeTab=newName.trim(); saveDataCs(); renderDataCsFullscreen(); toast("✅ Nama menu berhasil diubah!"); } }
-function deleteTab(tabName){ if(Object.keys(dataCs).length<=1){toast("⚠️ Minimal harus ada satu menu!"); return;} if(confirm(`Hapus menu "${tabName}" beserta semua isinya?`)){ delete dataCs[tabName]; delete gridColumns[tabName]; if(activeTab===tabName) activeTab=Object.keys(dataCs)[0]; saveDataCs(); renderDataCsFullscreen(); toast("🗑️ Menu dihapus!"); } }
-function copyCardContent(content){ copyText(content, "Isi konten berhasil disalin!"); }
-function filterCards(){ const grid=document.getElementById('dataCsGrid'); if(!grid) return; const cards=grid.querySelectorAll('.data-cs-card'); let visibleCount=0; cards.forEach(card=>{ const titleElement=card.querySelector('.card-header h3'); const title=titleElement?titleElement.innerText.replace('📌 ',''):''; if(searchKeyword===""||title.toLowerCase().includes(searchKeyword.toLowerCase())){ card.style.display=''; visibleCount++; }else{card.style.display='none';} }); const noResultDiv=grid.querySelector('.no-result'); if(visibleCount===0&&cards.length>0){ if(!noResultDiv){ const div=document.createElement('div'); div.className='no-result'; div.innerText='🔍 Tidak ada kartu yang sesuai dengan pencarian'; grid.appendChild(div); } }else{if(noResultDiv) noResultDiv.remove();} }
-function saveGridSetting(tab){ localStorage.setItem(`data_cs_grid_${tab.replace(/ /g, '_')}_final`, gridColumns[tab]); }
+function updateDataCsTitle(tab,id,newTitle){ const index=dataCs[tab].findIndex(item=>item.id==id); if(index!==-1){ dataCs[tab][index].title=newTitle; saveDataCs(); document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("✅ Judul berhasil diupdate!"); } }
+function deleteDataCs(tab,id){ dataCs[tab]=dataCs[tab].filter(item=>item.id!=id); saveDataCs(); document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("🗑️ Kartu dihapus!"); }
+function addNewDataCs(tab){ dataCs[tab].push({ id: Date.now(), title: `KARTU BARU ${dataCs[tab].length+1}`, content: "• Isi konten kartu di sini\n• Dapat diedit sesuai kebutuhan" }); saveDataCs(); document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("➕ Kartu baru ditambahkan!"); }
+function addNewTabCs(){ const newTabName=prompt("Masukkan nama menu baru:","MENU BARU"); if(newTabName&&newTabName.trim()){ const tabName=newTabName.trim(); if(dataCs[tabName]){toast("⚠️ Menu dengan nama tersebut sudah ada!"); return;} dataCs[tabName]=[{ id: Date.now(), title: "KARTU PERTAMA", content: "• Isi konten kartu di sini" }]; gridColumns[tabName]=5; saveDataCs(); activeTab=tabName; document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("✅ Menu baru ditambahkan!"); } }
+function editTabNameCs(oldName){ const newName=prompt("Edit nama menu:",oldName); if(newName&&newName.trim()&&newName!==oldName){ if(dataCs[newName.trim()]){toast("⚠️ Menu dengan nama tersebut sudah ada!"); return;} dataCs[newName.trim()]=dataCs[oldName]; gridColumns[newName.trim()]=gridColumns[oldName]; delete dataCs[oldName]; delete gridColumns[oldName]; if(activeTab===oldName) activeTab=newName.trim(); saveDataCs(); document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("✅ Nama menu berhasil diubah!"); } }
+function deleteTabCs(tabName){ if(Object.keys(dataCs).length<=1){toast("⚠️ Minimal harus ada satu menu!"); return;} if(confirm(`Hapus menu "${tabName}" beserta semua isinya?`)){ delete dataCs[tabName]; delete gridColumns[tabName]; if(activeTab===tabName) activeTab=Object.keys(dataCs)[0]; saveDataCs(); document.getElementById('dataCsFullscreen').remove(); renderDataCsFullscreen(); toast("🗑️ Menu dihapus!"); } }
+function filterCsCards(){ const grid=document.getElementById('dataCsGrid'); if(!grid) return; const cards=grid.querySelectorAll('.data-cs-card'); let visibleCount=0; cards.forEach(card=>{ const titleElement=card.querySelector('.card-header h3'); const title=titleElement?titleElement.innerText.replace('📌 ',''):''; if(searchKeywordCs===""||title.toLowerCase().includes(searchKeywordCs.toLowerCase())){ card.style.display=''; visibleCount++; }else{card.style.display='none';} }); const noResultDiv=grid.querySelector('.no-result'); if(visibleCount===0&&cards.length>0){ if(!noResultDiv){ const div=document.createElement('div'); div.className='no-result'; div.innerText='🔍 Tidak ada kartu yang sesuai dengan pencarian'; grid.appendChild(div); } }else{if(noResultDiv) noResultDiv.remove();} }
 
-// ========== SHORTCUT SCATTER - DATA BANK DENGAN DATA DEFAULT BARU ==========
+// ========== SHORTCUT SCATTER - DATA BANK ==========
 let dataBank = [];
 let tempelRowIndices = [];
 
-function removeQuotes(str) {
-    if (!str) return "";
-    return str.replace(/["']/g, '').trim();
-}
-
+function removeQuotes(str) { if (!str) return ""; return str.replace(/["']/g, '').trim(); }
 function extractBankFromLine(line) {
     let match = line.match(/No\s*Name\s*[-–—]?\s*([^,]+)/i);
     if (match && match[1]) return removeQuotes(match[1].trim());
@@ -1350,9 +1035,8 @@ function extractBankFromLine(line) {
     if (firstPart) return removeQuotes(firstPart.trim());
     return "";
 }
-
 function loadDataBank() {
-    const saved = localStorage.getItem('data_bank_togel_final2');
+    const saved = localStorage.getItem('data_bank_togel_final_v3');
     if(saved) { 
         try { 
             const parsed = JSON.parse(saved);
@@ -1360,28 +1044,18 @@ function loadDataBank() {
             tempelRowIndices = parsed.tempelIndices || [];
         } catch(e) { dataBank = []; tempelRowIndices = []; }
     }
-    if(!dataBank.length) { 
-        // DATA BANK BARU SESUAI PERMINTAAN (5 DATA)
-        dataBank = [
-            { bank: "BCA", id: "001", nama: "Budi Santoso", norek: "1234567890" },
-            { bank: "Mandiri", id: "002", nama: "Siti Aminah", norek: "9876543210" },
-            { bank: "BRI", id: "003", nama: "Joko Widodo", norek: "5551234567" },
-            { bank: "BNI", id: "004", nama: "Dewi Sartika", norek: "4449876543" },
-            { bank: "CIMB Niaga", id: "005", nama: "Rudi Hartono", norek: "7778889990" }
-        ]; 
-        tempelRowIndices = [];
-        saveDataBank(); 
-    }
+    if(dataBank.length === 0) { dataBank = []; tempelRowIndices = []; saveDataBank(); }
 }
-function saveDataBank() { 
-    localStorage.setItem('data_bank_togel_final2', JSON.stringify({ data: dataBank, tempelIndices: tempelRowIndices })); 
-}
+function saveDataBank() { localStorage.setItem('data_bank_togel_final_v3', JSON.stringify({ data: dataBank, tempelIndices: tempelRowIndices })); }
 function updateDataBank(index, bank, id, nama, norek) { 
     if(index >= 0 && index < dataBank.length) { 
         dataBank[index] = { bank: bank.trim().toUpperCase(), id: removeQuotes(id), nama: nama.trim(), norek: norek.trim() }; 
         const tempelIndex = tempelRowIndices.indexOf(index);
         if (tempelIndex !== -1) tempelRowIndices.splice(tempelIndex, 1);
-        saveDataBank(); renderDataBankFullscreen(); toast("✏️ Data berhasil diupdate!"); 
+        saveDataBank(); 
+        document.getElementById('dataBankFullscreen')?.remove();
+        renderDataBankFullscreen(); 
+        toast("✏️ Data berhasil diupdate!"); 
     } 
 }
 function deleteDataBank(index) { 
@@ -1389,24 +1063,30 @@ function deleteDataBank(index) {
     const tempelIndex = tempelRowIndices.indexOf(index);
     if (tempelIndex !== -1) tempelRowIndices.splice(tempelIndex, 1);
     for (let i = 0; i < tempelRowIndices.length; i++) if (tempelRowIndices[i] > index) tempelRowIndices[i]--;
-    saveDataBank(); renderDataBankFullscreen(); toast("🗑️ Data dihapus!"); 
+    saveDataBank(); 
+    document.getElementById('dataBankFullscreen')?.remove();
+    renderDataBankFullscreen(); 
+    toast("🗑️ Data dihapus!"); 
 }
-
+function addNewDataBankRow() {
+    dataBank.push({ bank: "BANK BARU", id: "ID", nama: "NAMA BARU", norek: "NOMOR REKENING" });
+    saveDataBank();
+    document.getElementById('dataBankFullscreen')?.remove();
+    renderDataBankFullscreen();
+    toast("➕ Baris data baru ditambahkan! Edit sesuai kebutuhan.");
+}
 function processPasteToBank(pastedText) {
     const lines = pastedText.split(/\r?\n/);
     let newData = [];
     let currentId = "";
-    
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i].trim();
         if (line === "") continue;
         if (line === "No Name" || line === '"No Name"' || line === "No Name:" || line === "-" || line === '"' || line === ",") continue;
-        
         if (!line.includes(",") && !line.match(/\d{8,}/) && line.length < 50 && !line.toLowerCase().includes("bank")) {
             currentId = removeQuotes(line);
             continue;
         }
-        
         if (line.includes(",")) {
             let parts = line.split(",");
             if (parts.length >= 3) {
@@ -1416,48 +1096,29 @@ function processPasteToBank(pastedText) {
                 bankName = bankName.replace(/[^\w\s]/g, '').trim().toUpperCase();
                 if (bankName === "") bankName = rawBank.toUpperCase();
                 bankName = removeQuotes(bankName);
-                
                 let nama = removeQuotes(parts[1].trim());
                 let norek = parts[2].trim();
                 norek = norek.replace(/[^0-9]/g, '');
-                
                 if (bankName && nama && norek && norek.length >= 5) {
-                    newData.push({
-                        bank: bankName,
-                        id: currentId || "-",
-                        nama: nama,
-                        norek: norek
-                    });
+                    newData.push({ bank: bankName, id: currentId || "-", nama: nama, norek: norek });
                 }
             }
             currentId = "";
         }
     }
-    
     if (newData.length > 0) {
         const startIndex = dataBank.length;
-        for (let i = 0; i < newData.length; i++) {
-            dataBank.push(newData[i]);
-            tempelRowIndices.push(startIndex + i);
-        }
+        for (let i = 0; i < newData.length; i++) { dataBank.push(newData[i]); tempelRowIndices.push(startIndex + i); }
         saveDataBank();
+        document.getElementById('dataBankFullscreen')?.remove();
         renderDataBankFullscreen();
         toast(`✅ Berhasil menambahkan ${newData.length} data dari paste!`);
-    } else {
-        toast("⚠️ Tidak ada data valid yang ditemukan. Format: ID\\nNAMA_BANK,NAMA_PEMILIK,NoRek");
-    }
+    } else { toast("⚠️ Tidak ada data valid yang ditemukan. Format: ID\\nNAMA_BANK,NAMA_PEMILIK,NoRek"); }
 }
-
-function copyRowData(bank, id, nama, norek) {
-    const text = `${bank}\t${id}\t${nama}\t${norek}`;
-    copyText(text, "Data baris berhasil disalin! (Format TAB untuk Excel/Sheets)");
-}
-
+function copyRowData(bank, id, nama, norek) { copyText(`${id}\t${nama}\t${norek}`, "Data ID, NAMA, NO REK berhasil disalin! (Format TAB)"); }
 function renderDataBankFullscreen() {
     isOnShortcutPage = true; isOnDataCsPage = false;
     loadDataBank();
-    document.getElementById('searchStats').style.display = 'none';
-    
     let tableRows = '';
     for (let i = 0; i < dataBank.length; i++) {
         const item = dataBank[i];
@@ -1469,58 +1130,54 @@ function renderDataBankFullscreen() {
             <td>${escapeHtml(cleanId)}</td>
             <td>${escapeHtml(item.nama)}</td>
             <td>${escapeHtml(item.norek)}</td>
-            <td>
-                <button class="copy-row-btn" onclick="copyRowData('${escapeHtml(item.bank).replace(/'/g, "\\'")}', '${escapeHtml(cleanId).replace(/'/g, "\\'")}', '${escapeHtml(item.nama).replace(/'/g, "\\'")}', '${escapeHtml(item.norek).replace(/'/g, "\\'")}')">📋 Copy</button>
-                <button class="edit-data-btn" data-index="${i}">✏️</button>
-                <button class="delete-data-btn" data-index="${i}">🗑️</button>
-               </td>
-           </tr>`;
+            <td><div class="action-buttons"><button class="copy-row-btn" data-bank="${escapeHtml(item.bank)}" data-id="${escapeHtml(cleanId)}" data-nama="${escapeHtml(item.nama)}" data-norek="${escapeHtml(item.norek)}">📋 Copy</button><button class="edit-data-btn" data-index="${i}">✏️ Edit</button><button class="delete-data-btn" data-index="${i}">🗑️ Hapus</button></div></td>
+        </td>`;
     }
-    
-    const fullscreenHtml = `
-        <div class="data-bank-fullscreen">
-            <div class="data-bank-container">
-                <div class="data-bank-header">
-                    <h1>⚡ SHORTCUT SCATTER ⚡</h1>
-                    <button id="backToPrediksiBank" class="back-to-prediksi-bank">◀ Kembali ke Prediksi</button>
+    const fullscreenHtml = `<div class="data-bank-fullscreen" id="dataBankFullscreen">
+        <div class="data-bank-container">
+            <div class="data-bank-header">
+                <h1>⚡ SHORTCUT SCATTER ⚡</h1>
+                <button id="backToPrediksiBank" class="back-to-prediksi-bank">◀ Kembali ke Prediksi</button>
+            </div>
+            <div class="bank-two-grid">
+                <div class="bank-table-grid">
+                    <h3>📋 DAFTAR REKENING</h3>
+                    <div class="bank-table-wrapper">
+                        <table class="bank-data-table">
+                            <thead><tr><th>BANK</th><th>ID</th><th>NAMA</th><th>NO REK</th><th>AKSI</th></tr></thead>
+                            <tbody>${tableRows || '<tr><td colspan="5" class="empty-table">📭 Belum ada data. Silakan tempel data dari panel sebelah kanan! 📋</td></tr>'}</tbody>
+                        </table>
+                    </div>
+                    <button id="addNewRowBtn" class="add-card-btn" style="margin-top: 15px;">➕ TAMBAH BARIS DATA BARU</button>
                 </div>
-                <div class="bank-two-grid">
-                    <div class="bank-table-grid">
-                        <h3>📋 DAFTAR REKENING</h3>
-                        <div class="bank-table-wrapper">
-                            <table class="bank-data-table">
-                                <thead><tr><th>BANK</th><th>ID</th><th>NAMA</th><th>NO REK</th><th>AKSI</th></tr></thead>
-                                <tbody>${tableRows || '<tr><td colspan="5" class="empty-table">Belum ada data. Tempel data di samping!</td></tr>'}</tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="bank-tempel-grid">
-                        <h3>📋 TEMPEL DATA DI SINI</h3>
-                        <div class="paste-info">💡 <strong>Tips:</strong> Copy data lalu <strong>paste (Ctrl+V)</strong> di area di bawah!<br>Nama bank akan otomatis diambil dari teks setelah <strong>"No Name"</strong> atau setelah tanda <strong>"-"</strong> hingga koma.<br>Tanda kutip pada kolom ID akan otomatis dihapus.<br>Contoh: <strong>No Name - BANK BCA, TIGOR DARTINUS S, 901694312587</strong></div>
-                        <textarea id="pasteArea" class="tempel-textarea" placeholder="Tempel data di sini...&#10;&#10;Contoh:&#10;telornaga&#10;No Name - BANK BCA, TIGOR DARTINUS S, 901694312587"></textarea>
-                        <div class="tempel-actions-bank"><button id="processPasteBtn" class="tempel-btn-bank">📋 PROSES PASTE</button><button id="clearPasteBtn" class="reset-input-bank">🗑️ Bersihkan</button></div>
-                        <div class="info-text">💡 Klik "PROSES PASTE" setelah menempel data, data akan langsung masuk ke tabel DAFTAR REKENING di samping!</div>
-                    </div>
+                <div class="bank-tempel-grid">
+                    <h3>📋 TEMPEL DATA DI SINI</h3>
+                    <div class="paste-info">💡 <strong>Tips:</strong> Copy data lalu <strong>paste (Ctrl+V)</strong> di area di bawah!<br>Contoh: <strong>No Name - BANK BCA, TIGOR DARTINUS S, 901694312587</strong></div>
+                    <textarea id="pasteArea" class="tempel-textarea" placeholder="Tempel data di sini..."></textarea>
+                    <div class="tempel-actions-bank"><button id="processPasteBtn" class="tempel-btn-bank">📋 PROSES PASTE</button><button id="clearPasteBtn" class="reset-input-bank">🗑️ Bersihkan</button></div>
                 </div>
             </div>
         </div>
-    `;
+    </div>`;
     document.body.insertAdjacentHTML('beforeend', fullscreenHtml);
-    document.getElementById('backToPrediksiBank').onclick = () => { document.querySelector('.data-bank-fullscreen').remove(); isOnShortcutPage = false; tampilkanSemua(false); };
-    const pasteArea = document.getElementById('pasteArea');
+    attachBankEventListeners();
+}
+function attachBankEventListeners() {
+    document.getElementById('backToPrediksiBank').onclick = () => { document.getElementById('dataBankFullscreen').remove(); isOnShortcutPage = false; tampilkanSemua(false); };
+    document.getElementById('addNewRowBtn').onclick = () => addNewDataBankRow();
     document.getElementById('processPasteBtn').onclick = async () => {
-        let text = pasteArea.value;
+        let text = document.getElementById('pasteArea').value;
         if (!text.trim()) {
-            try { text = await navigator.clipboard.readText(); if (text) pasteArea.value = text; else { toast("⚠️ Tidak ada data! Tempel data di area teks atau copy terlebih dahulu."); return; } } 
+            try { text = await navigator.clipboard.readText(); if (text) document.getElementById('pasteArea').value = text; else { toast("⚠️ Tidak ada data! Tempel data di area teks atau copy terlebih dahulu."); return; } } 
             catch(err) { toast("⚠️ Masukkan data di area teks!"); return; }
         }
-        if (text.trim()) { processPasteToBank(text); pasteArea.value = ''; } 
+        if (text.trim()) { processPasteToBank(text); document.getElementById('pasteArea').value = ''; } 
         else { toast("⚠️ Masukkan data terlebih dahulu!"); }
     };
-    document.getElementById('clearPasteBtn').onclick = () => { pasteArea.value = ''; toast("🗑️ Area teks dibersihkan!"); };
-    document.querySelectorAll('.edit-data-btn').forEach(btn => { btn.onclick = () => { const idx = parseInt(btn.getAttribute('data-index')); const item = dataBank[idx]; document.getElementById('editBank').value = item.bank; document.getElementById('editId').value = removeQuotes(item.id); document.getElementById('editNama').value = item.nama; document.getElementById('editNoRek').value = item.norek; document.getElementById('editIndex').value = idx; document.getElementById('editDataModal').style.display = 'flex'; }; });
-    document.querySelectorAll('.delete-data-btn').forEach(btn => { btn.onclick = () => { const idx = parseInt(btn.getAttribute('data-index')); deleteDataBank(idx); }; });
-    window.copyRowData = copyRowData;
+    document.getElementById('clearPasteBtn').onclick = () => { document.getElementById('pasteArea').value = ''; toast("🗑️ Area teks dibersihkan!"); };
+    document.querySelectorAll('.copy-row-btn').forEach(btn => { btn.onclick = () => copyRowData(btn.dataset.bank, btn.dataset.id, btn.dataset.nama, btn.dataset.norek); });
+    document.querySelectorAll('.edit-data-btn').forEach(btn => { btn.onclick = () => { const idx = parseInt(btn.dataset.index); const item = dataBank[idx]; document.getElementById('editBank').value = item.bank; document.getElementById('editId').value = removeQuotes(item.id); document.getElementById('editNama').value = item.nama; document.getElementById('editNoRek').value = item.norek; document.getElementById('editIndex').value = idx; document.getElementById('editDataModal').style.display = 'flex'; }; });
+    document.querySelectorAll('.delete-data-btn').forEach(btn => { btn.onclick = () => { const idx = parseInt(btn.dataset.index); deleteDataBank(idx); }; });
 }
 
 // INIT
